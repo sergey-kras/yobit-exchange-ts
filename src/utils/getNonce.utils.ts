@@ -10,13 +10,13 @@ export function getNonce(length: number): () => number {
         let now = Math.pow(10, 2) * + new Date();
 
         if (now === last) {
-            repeat++
+            repeat++;
         } else {
             repeat = 0;
-            last = now
+            last = now;
         }
 
         const s = (now + repeat).toString();
-        return +s.substr(s.length - length)
+        return +s.substr(s.length - length);
     }
 }
