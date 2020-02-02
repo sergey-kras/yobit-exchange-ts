@@ -18,5 +18,5 @@ export function getNonce(length: number): () => number {
 
         const s = (now + repeat).toString();
         return +s.substr(s.length - length);
-    }
+    };
 }
