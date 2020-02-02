@@ -1,4 +1,4 @@
-import { AbstractYoBit } from './AbstractYoBit';
+import { AbstractYoBit } from "./AbstractYoBit";
 import {YoBitOptions} from "../common/YoBitOptions";
 
 export class YoBit extends AbstractYoBit{
@@ -8,9 +8,9 @@ export class YoBit extends AbstractYoBit{
 
     getInfo() {
         return this.request({
-            method: 'getInfo',
+            method: "getInfo",
             data: null,
-            path: 'tapi/'
+            path: "tapi/"
         });
     }
 }

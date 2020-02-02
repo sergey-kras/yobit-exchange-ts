@@ -1,5 +1,5 @@
-import querystring from 'querystring';
-import * as crypto from 'crypto';
+import querystring from "querystring";
+import * as crypto from "crypto";
 import {YoBitOptions} from "./YoBitOptions";
 
 interface IAuthData extends YoBitOptions{
@@ -16,10 +16,10 @@ interface AuthHeaders {
 }
 
 export function getAuthHeaders({ secret, key, data }: IAuthData): AuthHeaders {
-    const stringData = data ? querystring.stringify(data) : '';
-    const sign = crypto.createHmac('sha512', secret)
+    const stringData = data ? querystring.stringify(data) : "";
+    const sign = crypto.createHmac("sha512", secret)
         .update(stringData)
-        .digest('hex');
+        .digest("hex");
 
     return { key, sign };
 }

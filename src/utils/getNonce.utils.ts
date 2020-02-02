@@ -2,7 +2,7 @@ export function getNonce(length: number): () => number {
     let last = null;
     let repeat = 0;
 
-    if (typeof length === 'undefined') {
+    if (typeof length === "undefined") {
         length = 15;
     }
 
