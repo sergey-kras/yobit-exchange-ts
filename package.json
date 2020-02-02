@@ -18,7 +18,8 @@
     "exchange",
     "api",
     "javascript",
-    "typescript"
+    "typescript",
+    "node"
   ],
   "author": "sergey-kras",
   "license": "ISC",
@@ -31,9 +32,19 @@
   ],
   "devDependencies": {
     "@types/jest": "^24.0.15",
+    "@types/node": "^13.7.0",
+    "axios": "^0.19.2",
     "jest": "^24.8.0",
     "ts-jest": "^24.0.2",
     "tslint": "^5.18.0",
-    "typescript": "^3.5.3"
+    "typescript": "^3.5.3",
+    "querystring": "^0.2.0"
+  },
+  "dependencies": {
+    "@types/axios": "^0.14.0",
+    "@types/request": "^2.48.4",
+    "nonce": "^1.0.4",
+    "request": "^2.88.0",
+    "yobit-exchange-api": "^1.0.2"
   }
 }
