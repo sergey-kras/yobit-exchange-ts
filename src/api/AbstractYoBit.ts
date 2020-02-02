@@ -18,6 +18,7 @@ export abstract class AbstractYoBit {
         const requestOptions = {
             url: 'https://yobit.net/' + path,
             method: 'POST',
+            json: true,
             form: extraData,
             headers: getAuthHeaders({
                 secret: this.secret,
