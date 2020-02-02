@@ -1,5 +1,5 @@
 import { YoBitOptions } from '../common/YoBitOptions';
-import request from 'request';
+import request from 'request-promise';
 import { getAuthHeaders } from '../common/Athentificate';
 import { getNonce } from '../utils/getNonce.utils';
 
@@ -26,6 +26,6 @@ export abstract class AbstractYoBit {
             })
         };
 
-        return request(requestOptions, (err, response, body) => console.log(body || err));
+        return request(requestOptions);
     }
 }

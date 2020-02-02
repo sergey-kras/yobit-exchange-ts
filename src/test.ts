@@ -27,5 +27,6 @@ const req = new YoBit({
     key: 'B80977399B445F91E61F95C03353768F'
 });
 
-const res = req.getInfo();
+const res = req.getInfo()
+    .then(data => console.log(data));
 // console.log(res);
