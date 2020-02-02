@@ -22,11 +22,11 @@ import {YoBit} from "./api/YoBit";
 //     console.log("========================");
 // });
 
-const req = new YoBit({
-    secret: "141ad887e59c137618fd1917703e2cfd",
-    key: "B80977399B445F91E61F95C03353768F"
-});
+// const req = new YoBit({
+//     secret: "141ad887e59c137618fd1917703e2cfd",
+//     key: "B80977399B445F91E61F95C03353768F"
+// });
 
-const res = req.getInfo()
-    .then(data => console.log(data));
+// const res = req.getInfo()
+//     .then(data => console.log(data));
 // console.log(res);
