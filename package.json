@@ -1,0 +1,26 @@
+{
+  "name": "yobit-exchange-ts",
+  "version": "1.0.0",
+  "description": "easy yobit api with types",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sergey-kras/yobit-exchange-ts.git"
+  },
+  "keywords": [
+    "yobit",
+    "exchange",
+    "api",
+    "javascript",
+    "typescript"
+  ],
+  "author": "sergey-kras",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sergey-kras/yobit-exchange-ts/issues"
+  },
+  "homepage": "https://github.com/sergey-kras/yobit-exchange-ts#readme"
+}
