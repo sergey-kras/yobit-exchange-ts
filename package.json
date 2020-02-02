@@ -3,8 +3,11 @@
   "version": "1.0.0",
   "description": "easy yobit api with types",
   "main": "index.js",
+  "types": "dist/index.d.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "tsc --declaration",
+    "test": "jest --ci --coverage --no-cache",
+    "prepare": "npm run build"
   },
   "repository": {
     "type": "git",
@@ -22,5 +25,15 @@
   "bugs": {
     "url": "https://github.com/sergey-kras/yobit-exchange-ts/issues"
   },
-  "homepage": "https://github.com/sergey-kras/yobit-exchange-ts#readme"
+  "homepage": "https://github.com/sergey-kras/yobit-exchange-ts#readme",
+  "files": [
+    "dist/*"
+  ],
+  "devDependencies": {
+    "@types/jest": "^24.0.15",
+    "jest": "^24.8.0",
+    "ts-jest": "^24.0.2",
+    "tslint": "^5.18.0",
+    "typescript": "^3.5.3"
+  }
 }
