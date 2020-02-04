@@ -1,7 +1,6 @@
 import { AbstractYoBit } from "./AbstractYoBit";
 import { YoBitOptions } from "../common/YoBitOptions";
-import { ActiveOrders, TradeInfo, TradeParams } from "../common/Intefaces";
-import { EnumPairs } from "../common/Pairs";
+import { ActiveOrders, TradeInfo, TradeParams, TradeResponse } from "../common/Intefaces";
 
 export class YoBit extends AbstractYoBit{
     constructor(options: YoBitOptions){
@@ -16,7 +15,7 @@ export class YoBit extends AbstractYoBit{
         });
     }
 
-    getActiveOrders(pair: keyof typeof EnumPairs): Promise<ActiveOrders> {
+    getActiveOrders(pair: string): Promise<ActiveOrders> {
         return this.request({
             method: "ActiveOrders",
             data: { pair },
@@ -24,7 +23,7 @@ export class YoBit extends AbstractYoBit{
         });
     }
 
-    Trade(data: TradeParams) {
+    Trade(data: TradeParams): Promise<TradeResponse> {
         return this.request({
             method: "Trade",
             data,

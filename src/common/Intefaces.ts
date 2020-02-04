@@ -1,12 +1,9 @@
-import { EnumSymbols } from "./Symbols";
-import { EnumPairs } from "./Pairs";
-
 interface IResponse {
     success: 1
 }
 
 export type FundsType = {
-    [key in EnumSymbols]: number
+    [key: string]: number
 };
 
 export type OrderType = 'buy' | 'sell';
@@ -31,7 +28,7 @@ export interface TradeInfo extends IResponse{
 export interface ActiveOrders extends IResponse{
     return: {
         [key: number]: {
-            pair: keyof typeof EnumPairs,
+            pair: string,
             type: OrderType,
             amount: number,
             rate: number,
@@ -42,7 +39,7 @@ export interface ActiveOrders extends IResponse{
 }
 
 export interface TradeParams {
-    pair: keyof typeof EnumPairs,
+    pair: string,
     type: OrderType,
     rate: number,
     amount: number
