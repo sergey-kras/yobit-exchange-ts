@@ -2,6 +2,7 @@ import { YoBitOptions } from "../common/YoBitOptions";
 import request from "request-promise";
 import { getAuthHeaders } from "../common/Athentificate";
 import { getNonce } from "../utils/getNonce.utils";
+import random_useragent from 'random-useragent';
 
 export abstract class AbstractYoBit {
     readonly key: string;
@@ -24,7 +25,12 @@ export abstract class AbstractYoBit {
                 secret: this.secret,
                 key: this.key,
                 data: extraData
-            })
+            }) as any
+        };
+
+        requestOptions.headers = {
+            ...requestOptions.headers,
+            "User-Agent": random_useragent.getRandom()
         };
 
         return request(requestOptions);
