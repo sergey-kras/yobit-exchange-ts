@@ -2,8 +2,8 @@
   "name": "yobit-exchange-ts",
   "version": "1.1.2",
   "description": "easy yobit api with types",
-  "main": "index.js",
-  "types": "dist/index.d.ts",
+  "main": "dist/index.js",
+  "types": "dist/common/interfaces.d.ts",
   "scripts": {
     "build": "tsc --declaration",
     "test": "jest --ci --coverage --no-cache",
@@ -33,18 +33,14 @@
   "devDependencies": {
     "@types/jest": "^24.0.15",
     "@types/node": "^13.7.0",
+    "@types/request": "^2.48.4",
+    "@types/request-promise": "^4.1.45",
     "jest": "^24.8.0",
+    "querystring": "^0.2.0",
+    "random-useragent": "^0.3.1",
+    "request-promise": "^4.2.5",
     "ts-jest": "^24.0.2",
     "tslint": "^5.18.0",
-    "typescript": "^3.5.3",
-    "querystring": "^0.2.0",
-    "@types/request": "^2.48.4",
-    "request": "^2.88.0",
-    "yobit-exchange-api": "^1.0.2"
-  },
-  "dependencies": {
-    "@types/request-promise": "^4.1.45",
-    "random-useragent": "^0.3.1",
-    "request-promise": "^4.2.5"
+    "typescript": "^3.5.3"
   }
 }
