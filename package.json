@@ -7,7 +7,10 @@
   "scripts": {
     "build": "tsc --declaration",
     "test": "jest --ci --coverage --no-cache",
-    "prepare": "npm run build"
+    "prepare": "npm run build",
+    "patch": "npm run build && npm version patch",
+    "minor": "npm run build && npm version minor",
+    "major": "npm run build && npm version major"
   },
   "repository": {
     "type": "git",
