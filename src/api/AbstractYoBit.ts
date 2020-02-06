@@ -3,6 +3,11 @@ import request from "request-promise";
 import { getAuthHeaders } from "../common/Athentificate";
 import { getNonce } from "../utils/getNonce.utils";
 import random_useragent from 'random-useragent';
+import { RequestTradeHistory, ValidHistoryRequest } from "../common/Intefaces";
+
+export type ValidHistoryMatch = {
+    [key in keyof RequestTradeHistory]: string;
+};
 
 export abstract class AbstractYoBit {
     readonly key: string;
@@ -34,5 +39,27 @@ export abstract class AbstractYoBit {
         };
 
         return request(requestOptions);
+    }
+
+    protected getValidHistoryRequest (filters: RequestTradeHistory): ValidHistoryRequest {
+        const match: ValidHistoryMatch = {
+            fromOrderNumber: 'from',
+            count: 'count',
+            fromOrderId: 'from_id',
+            endOrderId: 'end_id',
+            orderSort: 'order',
+            sinceDate: 'since',
+            endDate: 'end',
+            pair: 'pair'
+        };
+        const result: ValidHistoryRequest = {};
+
+        for (let key in filters) {
+            if (filters.hasOwnProperty(key)) {
+                result[match[key]] = filters[key];
+            }
+        }
+
+        return result;
     }
 }
