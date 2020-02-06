@@ -1,6 +1,15 @@
 import { AbstractYoBit } from "./AbstractYoBit";
 import { YoBitOptions } from "../common/YoBitOptions";
-import { ActiveOrders, TradeInfo, TradeParams, TradeResponse } from "../common/Intefaces";
+import {
+    ActiveOrders,
+    OrderCancel,
+    OrderInfo,
+    RequestTradeHistory,
+    ResponseTradeHistory,
+    TradeInfo,
+    TradeParams,
+    TradeResponse
+} from "../common/Intefaces";
 
 export class YoBit extends AbstractYoBit{
     constructor(options: YoBitOptions){
@@ -23,7 +32,25 @@ export class YoBit extends AbstractYoBit{
         });
     }
 
-    Trade(data: TradeParams): Promise<TradeResponse> {
+    getOrderInfo(orderId: string): Promise<OrderInfo> {
+        return this.request({
+            method: "OrderInfo",
+            data: { order_id: orderId },
+            path: "tapi/"
+        });
+    }
+
+    getTradeHistory(filters: RequestTradeHistory): Promise<ResponseTradeHistory> {
+        const data = this.getValidHistoryRequest(filters);
+
+        return this.request({
+            method: "TradeHistory",
+            data,
+            path: "tapi/"
+        });
+    }
+
+    trade(data: TradeParams): Promise<TradeResponse> {
         return this.request({
             method: "Trade",
             data,
@@ -31,5 +58,11 @@ export class YoBit extends AbstractYoBit{
         });
     }
 
-
+    cancelOrder(orderId: string): Promise<OrderCancel> {
+        return this.request({
+            method: "CancelOrder",
+            data: { order_id: orderId },
+            path: "tapi/"
+        });
+    }
 }
